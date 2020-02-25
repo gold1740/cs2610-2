@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+	{% load static %}
+        <link rel="stylesheet" href="{% static 'blog/style.css' %}" type="text/css"/>
+        <title>Peter Allen's Blog</title>
+    </head>
+
+    <body>
+   	 	<h1 id ="test"> Blog </h1>
+   	 	<h2> by Peter Allen </h2>
+	{% if posts %}
+	    
+	    {% for post in posts %}
+	        <p> {{ post.title}} by {{ post.author }}: {{ post.content }} (published on {{post.posted}})</p>
+	    {% endfor %}
+	    
+	{% else %}
+	    <p>No posts are available.</p>
+	{% endif %}
+	
+<a href="about.html" > about the author </a> 
+<p> </p>
+<a href="techtips.html" > tech tips </a>
+
+    </body>
+    
+</html>
