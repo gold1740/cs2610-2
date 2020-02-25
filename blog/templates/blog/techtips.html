@@ -3,7 +3,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="style.css" type="text/css"/>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'blog/style.css' %}" type="text/css"/>
         <title>Git</title>
     </head>
 
@@ -53,9 +54,10 @@
 		<li>padding: specifies how close other objects can get</li>
     </ol>
     
-<a href="about.html" > about the author </a> 
+<a href="about" > about the author </a> 
 <p></p>
-<a href="index.html" > my Blog </a>
+
+<a href="./" > my Blog </a>
 
     </body>
 

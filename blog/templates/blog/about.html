@@ -3,7 +3,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="style.css" type="text/css"/>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'blog/style.css' %}" type="text/css"/>
         <title>About Peter Allen</title>
     </head>
 
@@ -21,9 +22,10 @@
 		
 		</ul> <img src="bike.jpeg" alt="cool bike"> <img src="pizza.jpeg" alt="pizza"> <img src="jeff.jpeg" alt="Jeff"> 
 <p></p>		
-<a href="index.html" > my Blog </a>
+
+<a href="./" > my Blog </a>
 <p></p>
-<a href="techtips.html" > tech tips </a> 
+<a href="techtips" > tech tips </a> 
 
     </body>
 </html>
