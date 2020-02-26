@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+	{% load static %}
+        <link rel="stylesheet" href="{% static 'blog/style.css' %}" type="text/css"/>
+        <title>{{ post.title }} by {{ post.author }}</title>
+    </head>
+
+    <body>
+   	 	<h1 id ="test"> {{ post.title }} </h1>
+   	 	<h2>by {{ post.author }} </h2>
+	{% if post.comment_set.all %}
+	    
+	    {% for comment in post.comment_set.all %}
+	        <p> {{ comment.commenter }}	 ({{ comment.email }}) said "	 {{ comment.content }}"	 ({{comment.posted}})</p>
+	    {% endfor %}
+	    
+	{% else %}
+	    <p>No comments so far</p>
+	{% endif %}
+
+	<h3>Make a comment</h3>
+	{% if error %}<p><strong>{{ error }}</strong></p>{% endif %}
+	<form action="{% url 'comment' post.id %}" method="POST">
+	{% csrf_token %}
+	<label for="name">Your name: </label>
+	<input name="name" type="text" id="name" maxlength="16" size="16">
+	<p></p>
+	<label for="email">Your email: </label>
+	<input name="email" type="email" id="email" size="16">
+	<p></p>
+	<input name="content" type="text" id="content">
+	<p></p>
+	<input type="submit" value="Post Comment">
+	</form>
+	
+<p> </p>
+<a href="/blog/about" > about the author </a> 
+<p> </p>
+<a href="/blog/techtips" > tech tips </a>
+<p> </p>
+<a href="/blog">Back to the main page</a>
+    </body>
+    
+</html>

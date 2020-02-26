@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -5,25 +6,32 @@
         <meta charset="utf-8"/>
 	{% load static %}
         <link rel="stylesheet" href="{% static 'blog/style.css' %}" type="text/css"/>
-        <title>Peter Allen's Blog</title>
+        <title>{{ post.title }} by {{ post.author }}</title>
     </head>
 
     <body>
-   	 	<h1 id ="test"> Blog </h1>
-   	 	<h2> by Peter Allen </h2>
+   	 	<h1 id ="test"> Blog 2 </h1>
+   	 	<h2> electric boogaloo </h2>
 	{% if posts %}
 	    
 	    {% for post in posts %}
-	        <p> {{ post.title}} by {{ post.author }}: {{ post.content }} (published on {{post.posted}})</p>
+	        <p> {{ post.title}} by {{ post.author }}: {{ post.content|truncatewords:100 }} (published on {{post.posted}}) <a href = "{{post.id}}/">Click here for full text</a></p>
 	    {% endfor %}
 	    
 	{% else %}
 	    <p>No posts are available.</p>
 	{% endif %}
-	
-<a href="about" > about the author </a> 
-<p> </p>
-<a href="techtips" > tech tips </a>
+
+	{% if posts|length > 3 %}	
+		<a href="/blog">Back to the main page</a>
+	{% else %}
+		<a href="/blog/archive">Click here for older posts</a>
+	{% endif %}
+		
+	<p> </p>
+	<a href="about" > about the author </a> 
+	<p> </p>
+	<a href="techtips" > tech tips </a>
 
     </body>
     
